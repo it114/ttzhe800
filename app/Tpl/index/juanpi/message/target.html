@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<title>{:L('send_message')}</title>
+<include file="public:head" />
+<load href="__STATIC__/ftxia/new/css/md-pagination.css" />
+<load href="__STATIC__/ftxia/new/css/md-goodslist.css" />
+<load href="__STATIC__/ftxia/new/css/md-public.css" />
+<load href="__STATIC__/ftxia/new/css/pg-zone.css" />
+<css file="__STATIC__/jiu/css/message.css" />
+</head>
+<body>
+<include file="public:header" />
+<div class="main">
+	<div class="piece jiu_goods">
+		<div class="piece_box">
+			<div class="jiu_info">
+				<div class="jiu_bd jiu_top content_body fl">
+					<div class="nav_con">
+						<div class="top_nav">
+							<ul>
+								<li class="other_normal other_active"><a href="{:U('message/index')}">我的短消息</a></li>
+								<li class="other_normal "><a href="{:U('user/gift')}">我的礼品</a></li>
+								<li class="other_normal "><a href="{:U('user/like')}">我的喜欢</a></li>
+								<li class="other_normal "><a href="{:U('user/index')}">账号设置</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="content_left">
+					<ul id="zone_tab" class="zone_tab clear">		
+                            <li class="zt_f"><a href="{:U('message/index')}">消息列表</a></li>	
+                            <li class="zt_f"><a href="{:U('message/system')}">系统消息</a></li>							
+							<li class="zt_f c"><a href="{:U('message/target')}">{:L('send_message')}</a></li>							
+				    </ul>
+        <div class="mess_box fl">
+            <h3 class="title">
+                <i>{:L('send_message')}</i>
+                <a href="{:U('message/index')}" class="fr fh">{:L('return_message_list')}</a>
+            </h3>
+            <div class="mes_friendly">
+                <h4>{:L('recent_contacts')}</h4>
+                <ul class="list_name">
+                    <volist name="last_user" id="val">
+					<li><img src="{:avatar($val['uid'], 64)}" class="r3"><br>
+     <a href="{:U('message/write', array('to_id'=>$val['uid']))}">{$val.uname}</a>
+    </li>                   
+                    </volist>
+                </ul>
+            </div>
+            <div class="mes_friendly">
+                <h4>{:L('other_contacts')}</h4>
+                <div class="search_n">
+                    <input type="text" id="J_search_uname" class="fl r5">
+                    <a href="javascript:;" id="J_search_target" class="btn fl ml5">{:L('search')}</a>
+                </div>
+                <div id="J_search_list"></div>
+            </div>
+        </div>
+</div>
+</div>
+<div class="jiu_right fr">
+<include file="public:exchange_info" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<include file="public:footer" />
+<script src="__STATIC__/jiu/js/setting.js"></script>
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!doctype html>
+<html>
+<head>
+<include file="public:head3" />
+ <link type="text/css" rel="stylesheet" href="__STATIC__/juanpi/css/pgitem.css" />
+
+</head>
+<body>
+<include file="public:header" />
+<!--商品详细-->
+
+<div class="main">
+<div class="infopage_bd">
+    <div class="goods_show fl">
+        <div class="place-explain fl">
+          <a href="{:C('ftx_site_url')}">{:C('ftx_site_name')}</a>
+                    &gt;
+          <a href="{:U('index/cate', array('cid'=>$item['cate_id']))}">{$item['cname']}</a>
+                    &gt;
+          <a class="bady-xx-seo" href="{:U('jump/index',array('id'=>$item['id']))}">{$item.title}</a>
+     </div>
+        <div class="leimu-nav">
+		
+		<a href="{:C('ftx_site_url')}" class="last">返回全部</a>
+            
+        </div>
+        <div class="goods-show">
+            <div class="show_body "  data-gid="{$item.id}">
+                  <!-- 商品图片 -->
+                <div class="img_show fl">
+                  <div class="show_big_wrap">
+                    <div class="show_bgimg">
+                      <a class="show_big" href="{:U('jump/index',array('id'=>$item['id']))}" target="_blank" title="{$item.title}" >
+                        <img alt="{$item.title}" src="{$item['pic_url']}_500x1000.jpg" />
+                      </a>
+                    </div>
+                  </div>
+<div class="other-show">
+<div class="share-box fl">
+<span>分享</span>
+<div class="box">
+<!-- Baidu Button BEGIN -->
+<div class="bdsharebuttonbox" data-tag="share_1">	
+	<a class="bds_qzone" data-cmd="qzone" href="#"></a>
+	<a class="bds_tsina" data-cmd="tsina"></a>
+	<a class="bds_baidu" data-cmd="baidu"></a>	
+	<a class="bds_tqq" data-cmd="tqq"></a>	
+</div>
+</div>
+</div>
+<div class="report-box fl"><a znid="{$item.id}" title="举报商品：{$item.title}" class="buy_ed" href="javascript:;">举报</a></div>
+</div>
+</div>
+            <!-- 商品相关信息 -->
+            <div class="price-info fl" id="container">
+            <h3><a href="{:U('jump/index',array('id'=>$item['id']))}" target="_blank">{$item.title}</a></h3>
+            <div class="share"><a znid="{$item.id}" title="举报商品：{$item.title}" class="buy_ed reports" href="javascript:;"><i class="report-icon"></i>举报</a></div>
+                 <dl class="jp-size">
+                    <dt>宝贝属性：</dt>
+                    <dd>
+                    <ul>
+                   <volist name="tags" id="tag"> 
+					<li><a class="active" href="/?m=search&a=index&key={$tag}" target="_blank"><span>{$tag}</span></a></li> 
+					</volist>
+                   </ul>
+                    </dd>                    
+                </dl>
+               <p class="tips clear" style="overflow: hidden;">
+                   <!--- <span class="item-pr fl">原价：<em class="old-price">{$item.price}元</em></span>--->
+                </p>
+                <br>
+                <p class="price">
+                <span class="title-tips01">打折后价格<em class="tip-b"></em></span>
+                 <em class="org">￥</em> <span class="jd-current">{$item.coupon_price}</span> / <if condition="$item.ems eq '1' ">包邮</if><if condition="$item.ems eq '0' ">不包邮</if>
+				 </p>
+                <if condition="$item.class eq 'start' ">
+				<div class="item-btn clear">
+                <span>
+                <a target="_blank" class="btn fl start" href="http://qzs.qq.com/snsapp/app/bee/widget/open.htm#content=亲，您在 {:C('ftx_site_name')} 关注的【{$item.title}】马上就要开始抢购了哦。&time={$item.coupon_start_time|date='20y-m-d H:i',###}&advance=5&url={$item.url}"><span>设置开抢提醒</span></a>
+                </span>
+               </div>
+                <p class="price bady-time"> 
+					<span class="fl">开抢倒计时：</span> <span class="time fl" id="end_date_{$item.id}" data-time="{$item.coupon_start_time}" data-id="{$item.id}"></span>
+                    <span class="common nomind"><a class="openAlert" style="color:red" href="{:U('jump/index',array('id'=>$item['id']))}" target="_blank">进入店铺购买</a></span>					
+				</p>
+		        </if>
+			    <if condition="$item.class eq 'gone' ">
+				<div class="item-btn clear">
+                <span>
+                <a target="_blank" class="btn fl gone" href="{:U('jump/index',array('id'=>$item['id']))}"><span> 
+				<if condition="$item.shop_type eq 'C' ">去淘宝看看</if>
+                <if condition="$item.shop_type eq 'B' ">去天猫看看</if></span></a>
+                </span>
+                </div>
+                <p class="price bady-time"> 
+				<span class="fl" style="font-size:18px">秒杀活动已结束：继续浏览其他商品或直接<a target="_blank" style="color:red" href="{:U('jump/index',array('id'=>$item['id']))}"><if condition="$item.shop_type eq 'C' ">去淘宝购买</if>
+                <if condition="$item.shop_type eq 'B' ">去天猫购买</if></a>。</span> <span class="time fl" id="end_date_{$item.id}" data-time="{$item.coupon_start_time}" data-id="{$item.id}"></span>
+				</p>
+				</if>
+				
+				<if condition="$item.class eq 'buy' ">
+				<div class="item-btn clear">
+                <span>
+                <a target="_blank" class="btn fl buy" href="{:U('jump/index',array('id'=>$item['id']))}"><span> 
+				<if condition="$item.shop_type eq 'C' ">去淘宝抢购</if>
+                <if condition="$item.shop_type eq 'B' ">去天猫抢购</if></span></a>
+                </span>
+                </div>
+                <p class="price bady-time"> 
+				<span class="fl">离结束还有：</span> <span class="time fl" id="end_date_{$item.id}" data-time="{$item.coupon_end_time}" data-id="{$item.id}"></span>
+				<span class="common nomind"><a class="openAlert" href="http://qzs.qq.com/snsapp/app/bee/widget/open.htm#content=亲，您在 {:C('ftx_site_name')} 关注的【{$item.title}】马上就要开始抢购了哦。&time={$item.coupon_end_time|date='20y-m-d H:i',###}&advance=5&url={$item.url}" target="_blank">结束前提醒</a></span>
+				
+                    <dt>温馨提示： <p>16iu.com只是为您提供 <if condition="$item.shop_type eq 'C' ">淘宝网</if>
+                <if condition="$item.shop_type eq 'B' ">天猫商城</if> 正在打折的特价商品，最终成交是在 <if condition="$item.shop_type eq 'C' ">淘宝网</if>
+                <if condition="$item.shop_type eq 'B' ">天猫商城</if> 进行，请放心购买！</p>如果您感觉16iu.com比较不错，记得分享给您身边的朋友呀！16iu.com官方网址：www.sjiel.com</dt>
+			    </if>	
+				</p>
+                			           
+                 </div>
+                 </div>
+                 <div class="bady-part">
+                <div class="bady-tab" id="bady-tab">
+                  <ul>
+                   <li class="tab3">
+                   <a href="javascript:;" class="badyactive">用户评论<em></em></a>
+                   <div class="bady-line-top"></div>
+                   </li>
+                   </ul>
+                  <div class="gobuy fr" style="display:none;">
+                  <span class="title-tips01">打折后优惠价格<em class="tip-b"></em></span>
+                  <p class="price fl">
+                  <em class="org">￥</em> <span class="jd-current">{$item.coupon_price}</span> /<if condition="$item.ems eq '1' ">包邮</if><if condition="$item.ems eq '0' ">不包邮</if></p>
+			<if condition="$item.class eq 'buy' ">
+                 <a target="_blank" id="dealGone" class="btn fl buy" href="{:U('jump/index',array('id'=>$item['id']))}" rel="nofollow"> <span><if condition="$item.shop_type eq 'C' ">去淘宝抢购</if><if condition="$item.shop_type eq 'B' ">去天猫抢购</if></span></a>
+			<else />
+			<if condition="$item.class eq 'gone' ">
+			<a target="_blank" id="dealGone" class="btn fl gone" href="{:U('jump/index',array('id'=>$item['id']))}" rel="nofollow"> <span>已结束去看看</span></a>
+			<else />
+			<a target="_blank" id="dealGone" class="btn fl start" href="http://qzs.qq.com/snsapp/app/bee/widget/open.htm#content=亲，您在 {:C('ftx_site_name')} 关注的【{$item.title}】马上就要开始抢购了哦。&time={$item.coupon_end_time|date='20y-m-d H:i',###}&advance=5&url={$item.url}" target="_blank"><span>开抢提醒我</span></a>
+			</if>
+		    </if>
+                 </div>
+                </div>
+                                    
+                <div class="bady-tab bady-tab01">
+                <ul>
+                <li style="border-right: none">
+                <a class="" href="#tab3">关于商品的详情描述</a>
+                <div class=""></div>
+                </li>
+                </ul>
+            </div>
+            <div class="information comment">
+                    <div class="info-parameter comment-dis">
+                        <div class="item-comment">
+                            <div class="comment-box">
+                                <div class="comment-title fl">
+                                    <div class="com-box">
+                                    <div class="com-pub">
+                                                <div class="pub-head">
+                                                    <a class="head"><img width="64" height="64" src="{:avatar(1, '64')}"></a>
+                                                    <a class="name">小编评语</a>
+                                                </div>
+                                                <div class="introduce">
+                                                    <em></em>
+                                                    <p>{$item.title},{$item.intro}</p>
+                                                </div>
+                                            </div>
+                                                                                                                    </div>
+                                </div>
+                                <div class="com-box">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="bady-tab bady-tab02" >
+            <ul>
+                <li style="border-right: none;">
+                    <a class="" href="#tab3">用户评论<em></em></a>
+                    <div class=""></div>
+                </li>
+            </ul>
+        </div>
+             <div class="information comment">
+            <div class="info-parameter comment-dis">
+                <div class="item-comment"  >
+                    <p class="comment-title">评论</p>
+                    <div class="comment-box">
+                        <div class="com-box">
+                            <div class="cf_b com-big">
+                                <div class="pub-area" id="pub_area" data-id="{$item.id}" name="pub_area">
+                                 <textarea class="pub-txt" id="pub_content" def-val="你也可以顺便说点什么 O(∩_∩)O">你也可以顺便说点什么 O(∩_∩)O</textarea>
+                                 <div class="pub_area_ft">
+								<a href="javascript:;" class="pub_btn" id="pub_submit">发 表</a>
+								</div> 
+                                </div>
+								<div class="com-list user-info-r">
+                                 <ul>
+								 <volist name="comment_list" id="val">
+								<li uid="{$val.id}">                                
+                                 <div class="rate-user-info">
+                                <span class="rate-user" data-uid="{$val.uid}">{$val.uname}<span class="rate-user-grade">
+                                <img class="J_card avt fl r3" src="{:avatar($val['uid'], '32')}" data-uid="{$val.uid}" alt="{$val.uname}"/>
+                                </span>
+                                </span>
+                               <span class="rate-right fr">
+                                <em class="rate-time">{$val.add_time|frienddate}</em>
+                               <em><if condition="$item.shop_type eq 'C' ">评论来自淘宝</if><if condition="$item.shop_type eq 'B' ">评论来自天猫</if></em>
+                                </span>
+                                <div class="rate-leirong">{$val.info}</div>
+                                </div>
+                                </li>
+								</volist>
+                                </ul>
+                                </div>
+                                <div id="J_cmt_page" class="page">{$page_bar}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="item-good-list">
+    <h3>猜你喜欢</h3>
+    <ul class="goods-list" style="overflow:hidden;">  
+<ftx:item type="orlike" cid="$item['cate_id']">
+<volist name="data" id="val" key="i" mod="3">	
+    <li <eq name="mod" value="2">class="last"</eq>>
+    <div class="list-good buy todayDb">
+     <div class="good-pic">
+    <a href="{:U('item/index',array('id'=>$val['id']))}" target="_blank">
+    <img src="{:attach(get_thumb($val['pic_url'], '_m'),'item')}" width="240px" height="240px" alt="{$val.titme}"/>
+    </a>
+    <span class="brand_new"></span>
+     </div>
+      <h5 class="good-title">
+       <a target="_blank" href="{:U('item/index',array('id'=>$val['id']))}" class="title">{$val.title}</a>
+        </h5>       
+        <div class="good-price">
+            <span class="price-current"><em>￥</em>{$val.coupon_price}</span>
+            <span class="des-other">               
+            <span class="discount">销量：{$item.volume}</span>			
+            </span>
+             <div class="btn buy">
+                    <a href="{:U('jump/index',array('id'=>$val['id']))}" target="_blank"><if condition="$item.shop_type eq 'C' "><em class="icon tao-n"></em></if><if condition="$item.shop_type eq 'B' "><em class="icon tao-t"></em></if><span>去抢购</span></a>
+            </div>
+                    </div>
+            </div>
+</li>
+</volist>
+</ftx:item>
+</ul>
+</div>
+
+</div>
+<script src="__STATIC__/js/comment.js"></script>
+<include file="public:footer" />
+<script type="text/javascript">
+        $("img.lazy").lazyload({threshold:200,failure_limit:30});
+        $('ul.goods-list').find('img').lazyload({threshold:200, failure_limit:46});
+        seajs.use('__STATIC__/jiu/js/pg-deal.js?ts=201404261337',function(pg_deal){
+            pg_deal();
+        });
+        seajs.use('__STATIC__/jiu/js/md-pbtool.js?ts=201404261337',function(md_pbtool){
+            md_pbtool();
+        });
+        seajs.use('__STATIC__/jiu/js/md-jiu.js?ts=201404261337',function(md_jiu){
+            md_jiu();
+        });
+        seajs.use('__STATIC__/jiu/js/md-top.js?ts=201404261337',function(md_top){
+            md_top();
+        });
+
+        var F_showTwoDimeBox = function(){
+            $('.list-good .dimension').parents('li ').hover(
+                function(){
+                    var $self = $(this);
+                    var $selfDimension = $self.find('.dimension');
+                    var imgHtml = '<img id="dime_img" src="" width="97"/>';
+                    var imgSrcUrl = $self.find('.img_inputid').attr('d_src');
+                    if( $self.find('#dime_img').length == 0 ){
+                        $self.find('.dime-pic').append(imgHtml);
+                    }
+                    $self.find('#dime_img').attr('src', imgSrcUrl);
+                    $self.find('.two-iphone-n').attr('class', 'two-iphone');                    
+                    $selfDimension.show();
+                    var curSpanWid = $selfDimension.find('.num').width();
+                    if(curSpanWid > 25){
+                        $selfDimension.find('.unit').hide();
+                    }
+                }, function(){
+                    $(this).find('.two-iphone').attr('class', 'two-iphone-n');
+                    $(this).find('.dimension').hide();
+                }
+            );
+        }
+        F_showTwoDimeBox();
+        
+        $(".bady-tab:eq(0) li").click(function(){
+            $(document).scrollTop($('.bady-part').offset().top-50);
+            $(".bady-tab").not( $(".bady-tab:eq(0)")).hide();
+            $(this).parents("ul").find("a").removeClass("badyactive");
+            $(this).parents("ul").find("div").removeClass("bady-line-top");
+            $(this).find("a").addClass("badyactive");
+            $(this).find("div").addClass("bady-line-top");
+            if($(this).index() == 0){
+                $(".bady-tab,.information").show();
+                if($(".bady-tab").size() - $(".information").size() == 1){
+                    $(".bady-tab01").hide();
+                }else if($(".bady-tab").size() - $(".information").size() == 2){
+                    $(".bady-tab01").hide();
+                    $(".bady-tab02").hide();
+                }
+            }else{
+                $(".information").hide();
+                $(".information:eq("+$(this).index()+")").show();
+            }
+        });
+
+        $(".bady-tab:eq(0) li").each(function(index){
+            if(typeof($(this).attr("name"))!="undefined"){
+                    $("#"+$(this).attr("name")).click();
+                    $("#"+$(this).attr("name")).parents("ul").find("a").removeClass("badyactive");
+                    $("#"+$(this).attr("name")).parents("ul").find("div").removeClass("bady-line-top");
+                    $("#"+$(this).attr("name")).find("a").addClass("badyactive");
+                    $("#"+$(this).attr("name")).find("div").addClass("bady-line-top");
+            }else{
+                if($(this).index() == 0){
+                    //$(this).click();
+                    $(this).parents("ul").find("a").removeClass("badyactive");
+                    $(this).parents("ul").find("div").removeClass("bady-line-top");
+                    $(this).find("a").addClass("badyactive");
+                    $(this).find("div").addClass("bady-line-top");
+                }
+            }
+        });
+        
+        F_reDisDimenPos = function(){
+          if($('.jp-size').length == 0){
+            $('.two-item-box').css('bottom', '58px');
+            $('.item-tips').css('top', '120px');
+          }
+        }
+        F_reDisDimenPos();
+        var F_jkyCeleMenuAni = function(){
+            var jiuMenuObj = $('#bady-tab');
+            var Tab01Obj= $('.tab1').find("a")
+            var Tab02Obj= $('.tab1').find("div")
+            var Tab03Obj= $('.tab2').find("a")
+            var Tab04Obj= $('.tab2').find("div")
+            var Tab05Obj= $('.tab3').find("a")
+            var Tab06Obj= $('.tab3').find("div")
+            var menuScrolFunc = function(){
+                scrolY = $(window).scrollTop();
+                if(scrolY < 452){
+                    jiuMenuObj.removeClass('fixed');
+                    $('div.gobuy').hide();
+                }else{
+                    jiuMenuObj.addClass('fixed');
+                    $('div.gobuy').show();
+                }
+                if($('.bady-tab02').size()>0&&scrolY >=$('.bady-tab02').offset().top && !($(".information:eq(0)").is(":hidden"))){
+                    Tab03Obj.removeClass("badyactive");
+                    Tab04Obj.removeClass("bady-line-top");
+                    Tab01Obj.removeClass("badyactive");
+                    Tab02Obj.removeClass("bady-line-top");
+                    Tab05Obj.addClass("badyactive");
+                    Tab06Obj.addClass("bady-line-top")
+                }else if(scrolY >= $('.bady-tab01').offset().top && !($(".information:eq(0)").is(":hidden"))){
+                    Tab01Obj.removeClass("badyactive");
+                    Tab02Obj.removeClass("bady-line-top");
+                    Tab05Obj.removeClass("badyactive");
+                    Tab06Obj.removeClass("bady-line-top");
+                    Tab03Obj.addClass("badyactive");
+                    Tab04Obj.addClass("bady-line-top")
+                }else if(!($(".information:eq(0)").is(":hidden"))){
+                    Tab03Obj.removeClass("badyactive");
+                    Tab04Obj.removeClass("bady-line-top");
+                    Tab05Obj.removeClass("badyactive");
+                    Tab06Obj.removeClass("bady-line-top");
+                    Tab01Obj.addClass("badyactive");
+                    Tab02Obj.addClass("bady-line-top")
+                }
+
+            }
+            var F_nmenu_scroll = function () {
+                if (!window.XMLHttpRequest) {
+                    return;
+                }else{
+                    //默认执行一次
+                    menuScrolFunc();
+                    $(window).bind("scroll", menuScrolFunc);
+                }
+            }
+            F_nmenu_scroll();
+        }
+
+        F_jkyCeleMenuAni();
+    </script>
+<script>
+	window._bd_share_config = {
+		common : {
+			bdText : '{$item.title}',	
+			bdDesc : '{$item.intro}',	
+			bdUrl : '{$item.url}', 	
+			bdPic : '{$item.pic_url}',
+			bdMini:"1",
+			bdMiniList:["qzone","tsina","bdysc","tqq","tqf","thx","sohu","t163","mail","ty","copy"]
+		},
+		
+		share : [{
+			"bdSize" : 16
+		}],
+		slide : [{	   
+			bdImg : 5,
+			bdPos : "right",
+			bdTop : 190
+		}],		
+		selectShare : [{
+			"bdselectMiniList" : ['qzone','tqq','kaixin001','bdxc','tqf']
+		}]
+	}
+	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+<script type="text/javascript">
+function show_date_time(end,style,id){
+    today=new Date(); 
+	timeold=((end)*1000-today.getTime()); 
+	if (timeold < 0) {
+        return;
+    }
+    setTimeout("show_date_time("+end+','+style+','+id+")", 100); 
+    sectimeold=timeold/1000;
+	secondsold=Math.floor(sectimeold); 
+	msPerDay=24*60*60*1000;
+	e_daysold=timeold/msPerDay;
+	daysold=Math.floor(e_daysold); 
+	e_hrsold=(e_daysold-daysold)*24;
+	hrsold=Math.floor(e_hrsold); 
+	e_minsold=(e_hrsold-hrsold)*60;
+	minsold=Math.floor((e_hrsold-hrsold)*60); 
+	e_seconds = (e_minsold-minsold)*60;
+	seconds=Math.floor((e_minsold-minsold)*60); 
+	ms = e_seconds-seconds;
+	ms = new String(ms);
+	ms1 = ms.substr(2,1);
+	ms2 = ms.substr(2,2);
+	hrsold1=daysold*24+hrsold;
+	if(style == 1){
+		$("#end_date_"+id).html('<em>'+(hrsold1<10?'0'+hrsold1:hrsold1)+"</em>小时<em>"+(minsold<10?'0'+minsold:minsold)+"</em>分<em>"+(seconds<10?'0'+seconds:seconds)+"</em>秒");
+	}else if(style == 2){
+		$("#end_date_"+id).html('<em>'+daysold+"</em>天<em>"+(hrsold<10?'0'+hrsold:hrsold)+"</em>时<em>"+(minsold<10?'0'+minsold:minsold)+"</em>分<em>"+(seconds<10?'0'+seconds:seconds)+"</em>秒");
+	}else if(style == 3){
+		$("#end_date_"+id).html("<em>"+(hrsold1<10?'0'+hrsold1:hrsold1)+"</em>小时<em>"+(minsold<10?'0'+minsold:minsold)+"</em>分<em>"+(seconds<10?'0'+seconds:seconds)+"."+ms1+"</em>秒");
+	}else{
+		$("#end_date_"+id).html(daysold+"天"+(hrsold<10?'0'+hrsold:hrsold)+"小 时"+(minsold<10?'0'+minsold:minsold)+"分"+(seconds<10?'0'+seconds:seconds)+"秒."+ms2);
+	}
+}
+$(".time").each(function() {
+        var reg = /^[0-9]+$/;
+        var timer = $(this).attr('data-time');
+		var id = $(this).attr('data-id');
+        if (reg.test(timer)) {
+            show_date_time(timer, 3, id);
+        }
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<div class="jiu-side-nav">
+    <!--<div >
+        <a class="logo" title="{:C('ftx_site_name')}" href="{:C('ftx_site_url')}"></a></div>-->
+    <div class="content">
+        <div class="hd">
+            <h3><span>全场9.9包邮</span></h3>
+        </div>
+        <div class="bd">
+            <ul>
+			<if condition='$nav_curr eq gift'>
+			<volist name="cate_list" id="cate">
+								<li><a <if condition="$cid eq $cate['id']">class="on"</if> href="{:U('gift/index',array('cid'=>$cate['id']))}" title="{$cate.name}">{$cate.name}</a></li>
+			</volist>
+			<else />
+                <empty name="cate_list['s'][$cid]">
+									<empty name="cate_list['s'][$cinfo['pid']]">
+										
+										<volist name="cate_list['p']" id="bcate">
+										<li><a <if condition="$cid eq $bcate['id']">class="on"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
+										</volist>
+									<else />
+										<volist name="cate_list['s'][$cinfo['pid']]" id="bcate">
+										<li><a <if condition="$cid eq $bcate['id']">class="on"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
+										</volist>
+									</empty>
+								<else />
+									<empty name="cate_list['s'][$cinfo['pid']]">
+										<volist name="cate_list['s'][$cid]" id="bcate">
+										<li><a <if condition="$cid eq $bcate['id']">class="on"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
+										</volist>
+									<else />
+										<volist name="cate_list['s'][$cinfo['pid']]" id="bcate">
+										<li><a <if condition="$cid eq $bcate['id']">class="on"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
+										</volist>
+									</empty>
+								</empty>
+								</if>
+            </ul>
+            <ul class="bd-other bd-web">
+                <li><a href="{:U('shijiu/index')}" <if condition='$nav_curr eq shijiu'>class="on"</if>>十九块九</a></li>
+                <li><a href="{:U('yugao/index')}"<if condition='$nav_curr eq yugao'>class="on"</if>>明日预告</a></li>
+            </ul>
+        </div>
+        <div class="hd">
+            <h3>精选推荐</h3>
+        </div>
+        <div class="bd">
+            <ul class="bd-other">
+                <li><a href="{:U('brand/index')}" <if condition='$nav_curr eq brand'>class="on"</if>>品牌秒杀</a></li>
+				<li><a href="{:U('goods/goods_add')}" target="_blank" class="out<if condition='$nav_curr eq shijiu'>on</if>">商家报名</a></li></ul></div>
+        <div class="bottom">
+
+        </div>
+    </div>
+</div>

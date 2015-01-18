@@ -1,0 +1,87 @@
+<!doctype html public "-//w3c//dtd html 4.01 transitional//en" "http://www.w3.org/tr/html4/loose.dtd">
+<html>
+ <head>
+  <title> U站采集页面</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <load href="__STATIC__/js/jquery/jquery.js" />
+  <script type="text/javascript">
+   var curlbegin ='{:U('admin/uzhan/onebegin')}';
+   var curladditems ='{:U('admin/uzhan/additems',array('caitype'=>'onecai'))}';
+   var pic        = '__STATIC__/ftxia/js/loading.gif';
+   var timeurl    = '{:U('admin/uzhan/starttime')}';
+   var gettimeurl    = '{:U('admin/uzhan/getstarttime')}';
+  </script>
+  </head>
+  <body>
+  <div id="main">
+  <form method="post" action="#" id="myForm">
+  <div id="ben">
+  <p>你的分类:&nbsp;&nbsp;&nbsp;宝贝开始时间：
+ <select name="starttime">
+  <option value="0" selected>立即开始</option>
+  <option value="t0">今天零点</option>
+  <option value="t10">今天十点</option>
+  <option value="b0">明天零点</option>
+  <option value="b10">明天十点</option>
+ </select></p>
+  <table>
+    <volist name="cates" id='v'>
+    <tr><td>{$v.name}</td><td><input type="radio" name="cates" value={$v.id}></td></tr>
+    </volist>
+  </table>
+  </div>
+
+  <div id="zhe">
+   <p>折800分类信息:</p>
+   <table>
+     <tr>
+       <td>女装</td><td>化妆品</td><td>鞋包</td><td>数码家电</td><td>美食</td>
+       <td>居家</td><td>母婴</td><td>文体</td><td>男装</td><td>配饰</td>
+     </tr>
+     <tr>
+       <td><input type="radio" name="zh" value='zhe800_2'></td>
+       <td><input type="radio" name="zh" value='zhe800_3'></td>
+       <td><input type="radio" name="zh" value='zhe800_4'></td>
+       <td><input type="radio" name="zh" value='zhe800_5'></td>
+       <td><input type="radio" name="zh" value='zhe800_6'></td>
+       <td><input type="radio" name="zh" value='zhe800_7'></td>
+       <td><input type="radio" name="zh" value='zhe800_8'></td>
+       <td><input type="radio" name="zh" value='zhe800_9'></td>
+       <td><input type="radio" name="zh" value='zhe800_11'></td>
+       <td><input type="radio" name="zh" value='zhe800_12'></td>
+     </tr>
+   </table>
+   
+<p>九块邮分类信息:</p>
+        <table>
+             <tr>
+               <td>服饰</td><td>美妆</td><td>鞋包配饰</td><td>美食</td><td>居家电器</td><td>母婴</td>
+               <td>文体</td>
+             </tr>
+             <tr>
+               <td><input type="radio" name="zh" value='jiukuaiyou_fushi'></td>
+               <td><input type="radio" name="zh" value='jiukuaiyou_meizhuang'></td>
+               <td><input type="radio" name="zh" value='jiukuaiyou_xiebaopeishi'></td>
+               <td><input type="radio" name="zh" value='jiukuaiyou_meishi'></td>
+               <td><input type="radio" name="zh" value='jiukuaiyou_jujia'></td>
+               <td><input type="radio" name="zh" value='jiukuaiyou_muying'></td>
+               <td><input type="radio" name="zh" value='jiukuaiyou_wenti'></td>
+             </tr>
+           </table>
+  </div>
+  <div id='info'>
+    <p id="tsxx">信息提示</p>
+    <div id="cont"></div>
+  </div>
+  </form>
+</div>
+<div id="footer">
+<span id='caiji' onclick="begin()">采集宝贝</span>
+<span id='add' onclick="add()">添加宝贝</span>
+</div>
+<div id="sm">
+</div>
+  </body>
+  <load href="__STATIC__/ftxia/js/onecai.js" />
+  <load href="__STATIC__/ftxia/css/onecai.css"/>
+</html>

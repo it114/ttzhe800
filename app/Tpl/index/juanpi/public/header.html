@@ -1,0 +1,181 @@
+<div class="head">
+<style type="text/css"> 
+#cs{width:610px;height:60px; dashed;overflow:hidden;text-overflow:ellipsis} 
+</style> 
+    <div class="top">
+        <div class="user-head-top">
+            <div class="top-box-left fr">
+			    
+                <a onclick="AddFavorite(window.location,document.title)" href="#" class="collect"><i class="collect-ico"></i>收藏</a>
+                <a href="{:C('ftx_header_html')}" target="_blank" class="" rel="nofollow">手机版</a>
+                <a href="{:C('ftx_kefu_html')}" target="_blank" class="" rel="nofollow">在线客服</a>
+                <a href="{:U('goods/goods_add')}" class="" target="_blank">我要报名</a>
+				<a href="index.php?m=article&a=cate&id=1" class="" target="_blank">报名须知</a>
+            </div>
+        </div>
+
+        <div class="logo_show">
+            <a href="{:C('ftx_site_url')}" title="{:C('ftx_site_name')}" class="logo">{:C('ftx_site_name')}</a>
+            <a href="{:C('ftx_site_url')}" title="{:C('ftx_site_name')}"><span class="new-logo_intr"></span></a> <a class="andriod-down" href=""></a>
+        </div>
+<div class="userlogin">
+<notempty name="visitor">
+<div class="other-links fr">
+<span class="other-login">
+<a href="{:U('score/logs')}" class="my-jd"><i class="jd-icon"></i>我的积分</a></span>
+<span class="sign signIn_div"><a href="javascript:;" class="btn02 sign_btn"><i></i><span class="qdao">已签到</span></a>
+<div style="display: none; " class="box-sign" id="">
+<p class="juandou"><label>积分：</label><span class="dou">{$visitor.score}</span></p>
+<p><a href="{:U('union/index')}" class="visit">赚积分&gt;&gt;</a></p>
+</div>
+</span>
+</div>
+<div class="other-links other-fanli fr">
+<span class="other-login"><a href="{:U('user/like')}" class="my-fanli"><i class="fl-icon"></i>我的喜欢</a>
+</span>
+</div>
+<ul class="login-union login-union-two fr">
+<div class="normal">
+<a class="normal-a" href="{:U('user/index')}">
+<img class="mb_avt" src="{:avatar($val['uid'], '32')}">
+<span class="name-r">{$visitor.username}</span>
+<em class="cur"></em></a>
+<div class="login-box zone-box" style="display: none; "><ul>
+<li><a href="{:U('message/index')}"><i class="icon-04"></i><span>我的消息</span></a></li>
+<li><a href="{:U('user/index')}"><i class="icon-06"></i><span>账号设置</span></a></li>
+<li class="nobr"><a class="exit" href="{:U('user/logout')}"><i class="icon-07"></i>
+<span>退出</span></a></li>
+</ul>
+</div>
+</div>
+</ul>
+<else/>
+<div class="other-links fr">
+<span class="other-login">
+<a href="{:U('user/login')}">登录</a>/
+<a href="{:U('user/register')}">注册</a>
+</span>
+<span class="sign signIn_div">
+<a href="javascript:;" class="btn02 sign_btn"><i></i><span class="qdao">签到</span></a> </span></div>
+<ul class="login-union fr">
+<volist name="oauth_list" id="val">
+<li><a target="_blank" href="{:U('oauth/index', array('mod'=>$val['code']))}" title="{$val.name}"><i class="icon-{$val['code']}"></i><span>{$val.name}</span></a></li>
+</volist>
+</ul>
+</notempty>
+</div>
+    </div>
+	<div class="nav">
+        <ul class="nav_list">
+		<li class="split <if condition='$nav_curr eq index'>cur01</if>"><a href="{:C('ftx_site_url')}"><span>首页</span><i class="b_r"></i></a></li>
+		<ftx:nav type="lists" style="top">
+			<volist name="data" id="val">
+				<li class="split <if condition="$nav_curr eq $val['alias']">cur01</if>"><a href="{$val.link}" <if condition="$val.target eq 1">target="_blank"</if>><span>{$val.name}</span><i class="b_r"></i></a>
+			</volist>
+			</ftx:nav>           
+        </ul>        
+    </div>  
+
+</div>
+        
+    <div class="jiu-nav-main ">
+        <div class="jiu-nav" style="z-index: 18;">
+            <div class="nav-item fl">
+           <div id="cs"> <div class="item-list">
+			<ul>
+				 <if condition='$nav_curr eq gift'>
+				<li><a href="{:U('gift/index')}" <empty name="cid">class="active"</empty>>全部</a></li>
+				<volist name="cate_list" id="cate">
+								<li><a <if condition="$cid eq $cate['id']">class="active"</if> href="{:U('gift/index',array('cid'=>$cate['id']))}" title="{$cate.name}">{$cate.name}</a></li>
+			</volist>
+			<else />
+				<li><a href="{:C('ftx_site_url')}" <empty name="cid"> class="active"</empty>>全部</a></li>
+				<empty name="cate_list['s'][$cid]">
+									<empty name="cate_list['s'][$cinfo['pid']]">
+										
+										<volist name="cate_list['p']" id="bcate">
+										<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
+										</volist>
+									<else />
+										<volist name="cate_list['s'][$cinfo['pid']]" id="bcate">
+										<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
+										</volist>
+									</empty>
+								<else />
+									<empty name="cate_list['s'][$cinfo['pid']]">
+										<volist name="cate_list['s'][$cid]" id="bcate">
+										<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
+										</volist>
+									<else />
+										<volist name="cate_list['s'][$cinfo['pid']]" id="bcate">
+										<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
+										</volist>
+									</empty>
+								</empty>  
+</if>								
+                </ul>
+		
+			
+			
+       
+        </div>	</div>
+		</div>
+            <div class="nav-commend fl">
+            <div class="commend-list">
+                <ul>
+                    <li class="f4"><a href="{:U('jiu/index')}" <if condition='$nav_curr eq shijiu'>class="advance"</if>>9.9包邮<div class="here-tips"><em></em><p>九块邮</p></div></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-other fl">
+            <ul>
+                <li class="two "><a href="{:U('yugao/index')}" <if condition='$nav_curr eq yugao'>class="advance"</if>><i class="tw"></i><span>明日预告</span></a></li>
+            </ul>
+        </div>
+            <div class="search-box fr">
+                <form name="search" action="{:C('ftx_site_url')}" method="get" id="search">
+                    <span class="area-txt">
+					<input type="text" name="k" id="key" class="text" value="请输入想找的宝贝" x-webkit-speech=""></span>
+                    <span class="area-sub">
+					<input type="hidden" name="m" value="index">
+                    <input type="hidden" name="a" value="so">
+                    <input type="submit" id="k" value=""  class="sub">
+					</span>
+                </form>
+            </div>
+        <script>
+        (function(){
+            var $search_txt = $(".search-box .area-txt .text");
+            $search_txt.on('focusin', function(){
+                if($(this).val()=="请输入想找的宝贝"){
+                    $(this).val("");
+                }else{
+                    $(this).css({
+                        color: '#646464'
+                    });
+                }
+            })
+            .on('focusout', function(){
+                if($(this).val()==""){
+                    $(this).val("请输入想找的宝贝");
+                }
+            })
+            .on('focus', function(){
+                if($(this).val()=="请输入想找的宝贝"){
+                    $(this).val("");
+                }else{
+                    $(this).css({
+                        color: '#646464'
+                    });
+                }
+            });
+
+            $(".search-box .area-sub .sub").on('click', function(){
+                if($(".search-box .area-txt .text").val()=="请输入想找的宝贝" ||$(".search-box .area-txt .text").val()==""){
+                    return false;
+                }
+            });
+        })(jQuery);
+        </script>
+        </div>
+    </div>

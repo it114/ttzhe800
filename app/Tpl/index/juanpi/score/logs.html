@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<include file="public:head" />
+<load href="__STATIC__/ftxia/new/css/md-pagination.css" />
+<load href="__STATIC__/ftxia/new/css/md-goodslist.css" />
+<load href="__STATIC__/ftxia/new/css/md-public.css" />
+<load href="__STATIC__/ftxia/new/css/pg-zone.css" />
+<load href="__STATIC__/css/ftxia/user.css" />
+<load href="__STATIC__/ftxia/css/style.css" />
+</head>
+<body>
+<include file="public:header" />
+<div class="main">
+	<div class="piece jiu_goods">
+		<div class="piece_box">
+			<div class="jiu_info">
+				<div class="jiu_bd content_body fl">
+					<div class="nav_con">
+						<div class="top_nav">
+							<ul>
+								<li class="other_normal "><a href="{:U('message/index')}">我的短消息</a></li>
+								<li class="other_normal other_active"><a href="{:U('user/gift')}">我的礼品</a></li>
+								<li class="other_normal "><a href="{:U('user/like')}">我的喜欢</a></li>
+								<li class="other_normal "><a href="{:U('user/index')}">账号设置</a></li>
+							</ul>
+						</div>
+					</div><div class="content_left">
+					<ul id="zone_tab" class="zone_tab clear">
+						    <li class="zt_f"><a href="{:U('user/gift')}">我的礼品</a></li>
+							<li class="zt_f"><a href="{:U('score/index')}">金币兑换</a></li>
+							<li class="zt_f c"><a href="{:U('score/logs')}">我的积分</a></li>
+						</ul>
+					<div class="c_b_body">
+						<div class="title clearfix">
+							<h2>{:L('score_log')}</h2>
+							<span class="green fr">{:L('my_score')}：<em>{$score_total}</em> 分</span>
+						</div>
+				 
+						<div class="order">
+							<notempty name="logs_list">
+							<ul class="order_l">
+								<li class="tit">
+									<span class="r_time">{:L('time')}</span>
+									<span class="r_action">{:L('action')}</span>
+									<span class="r_score">{:L('score')}</span>
+								</li>
+								 <volist name="logs_list" id="val">
+								<li>
+									<span class="r_time">{$val.add_time|frienddate}</span>
+									<span class="r_action">{:L($val['action'])}</span>
+									<span class="r_score"><if condition="$val['score'] gt 0">{$val.score}<else/>{$val.score}</if></span>
+								</li>
+								</volist>
+							</ul>
+							<div class="page"><div class="pageNav">{$page_bar}</div></div>
+							<else/>
+						<p>{:L('no_score_logs')}</p>
+						</notempty>
+						</div>
+
+
+						
+					</div>
+				</div>
+				<div class="jiu_right fr">
+					<include file="public:exchange_info" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+ 
+
+<include file="public:footer" />
+<script src="__STATIC__/js/setting.js"></script>
+</body>
+</html>

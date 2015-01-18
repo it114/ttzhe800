@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<title>{:L('system_notic')}</title>
+<include file="public:head" />
+<load href="__STATIC__/ftxia/new/css/md-pagination.css" />
+<load href="__STATIC__/ftxia/new/css/md-goodslist.css" />
+<load href="__STATIC__/ftxia/new/css/md-public.css" />
+<load href="__STATIC__/ftxia/new/css/pg-zone.css" />
+<css file="__STATIC__/jiu/css/message.css" />
+</head>
+<body>
+<include file="public:header" />
+<div class="main">
+	<div class="piece jiu_goods">
+		<div class="piece_box">
+			<div class="jiu_info">
+				<div class="jiu_bd jiu_top content_body fl">
+					<div class="nav_con">
+						<div class="top_nav">
+							<ul>
+								<li class="other_normal other_active"><a href="{:U('message/index')}">我的短消息</a></li>
+								<li class="other_normal "><a href="{:U('user/gift')}">我的礼品</a></li>
+								<li class="other_normal "><a href="{:U('user/like')}">我的喜欢</a></li>
+								<li class="other_normal "><a href="{:U('user/index')}">账号设置</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="content_left">
+					<ul id="zone_tab" class="zone_tab clear">		
+                            <li class="zt_f"><a href="{:U('message/index')}">消息列表</a></li>	
+                            <li class="zt_f c"><a href="{:U('message/system')}">系统消息</a></li>							
+							<li class="zt_f"><a href="{:U('message/target')}">{:L('send_message')}</a></li>							
+				    </ul>
+        <div class="mess_box fl">
+            <h3 class="title"><i>{:L('system_notic')}</i></h3>
+            <if condition="$system_list neq ''">
+            <ul class="system">
+                <volist name="system_list" id="val">
+                <li>
+                    <p class="sys_text clr6 fl">{$val.info}</p>
+                    <span class="sys_time fr">{$val.add_time|frienddate}</span>
+                </li>
+                </volist>
+            </ul>
+            <div class="page_bar">{$page_bar}</div>
+            <else/>
+            <p class="mt20">{:L('no_system_notic')}</p>
+            </if>
+        </div>
+    </div>
+</div>
+<div class="jiu_right fr">
+					<include file="public:exchange_info" />
+				</div>
+</div>
+</div>
+</div>
+</div>
+<include file="public:footer" />
+<script src="__STATIC__/jiu/js/setting.js"></script>
+</body>
+</html>

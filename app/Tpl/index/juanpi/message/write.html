@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<title>{:sprintf(L('talk_with_title'),$ta_name)}</title>
+<include file="public:head" />
+<load href="__STATIC__/ftxia/new/css/md-pagination.css" />
+<load href="__STATIC__/ftxia/new/css/md-goodslist.css" />
+<load href="__STATIC__/ftxia/new/css/md-public.css" />
+<load href="__STATIC__/ftxia/new/css/pg-zone.css" />
+<css file="__STATIC__/jiu/css/message.css" />
+</head>
+<body>
+<include file="public:header" />
+<div class="main">
+	
+		<div class="piece_box">
+			<div class="jiu_info">
+				<div class="jiu_bd jiu_top content_body fl">
+					<div class="nav_con">
+						<div class="top_nav">
+							<ul>
+								<li class="other_normal other_active"><a href="{:U('message/index')}">我的短消息</a></li>
+								<li class="other_normal "><a href="{:U('user/gift')}">我的礼品</a></li>
+								<li class="other_normal "><a href="{:U('user/like')}">我的喜欢</a></li>
+								<li class="other_normal "><a href="{:U('user/index')}">账号设置</a></li>
+							</ul>
+						</div>
+					</div>
+		<div class="content_left">
+		           <ul id="zone_tab" class="zone_tab clear">		
+                            <li class="zt_f"><a href="{:U('message/index')}">消息列表</a></li>	
+                            <li class="zt_f"><a href="{:U('message/system')}">系统消息</a></li>							
+							<li class="zt_f c"><a href="{:U('message/target')}">{:L('send_message')}</a></li>							
+				    </ul>
+        <div class="mess_box fl">
+            <h3 class="title">
+                <i>{:sprintf(L('talk_with_title'),$ta_name)}</i>
+                <a href="{:U('message/index')}" class="fr fh">{:L('return_message_list')}</a>
+            </h3>
+            <div class="mt20">
+                <div class="ml_pic">
+                    <img src="{:avatar($visitor['id'], 48)}" class="r5">
+                </div>
+                <div class="ml_content show_content">
+                    <div class="pub_area_a">
+                        <textarea id="J_msg_content" class="pub_txt"></textarea>
+                        <div class="mt5">
+                         <a href="javascript:;" id="J_msg_send" class="btn fr" data-toid="{$ta_id}">{:L('ok')}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul id="J_msg_list" class="meslist"></ul>
+        </div>
+    </div>
+</div>
+<div class="jiu_right fr">
+					<include file="public:exchange_info" />
+				</div>
+</div>
+</div>
+
+</div>
+<include file="public:footer" />
+<script src="__STATIC__/jiu/js/setting.js"></script>
+</body>
+</html>

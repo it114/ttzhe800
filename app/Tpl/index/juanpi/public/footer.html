@@ -1,0 +1,182 @@
+<notempty name="visitor">
+<if condition="$visitor['username'] eq C('ftx_index_admin')">
+<script type="text/javascript">
+	function noshow(id){
+		if(!$.ftxia.dialog.islogin()) return ;
+		$(this).html('<img src="/static/ftxia/images/loading.gif" />');
+		$.ajax({
+			url: FTXIAER.root + '/?m=item&a=noshow',
+				type: 'POST',
+				data: {
+					id: id
+				},
+			dataType: 'json',
+			success: function(result){
+				if(result.status == 1){
+					$.ftxia.tip({content:result.msg, icon:'success'});
+				}else{
+					$.ftxia.tip({content:result.msg, icon:'error'});
+				}
+			}
+		});
+	}
+
+	$(".show a").click(function() {
+		id = $(this).attr("data-id");
+		if(!$.ftxia.dialog.islogin()) return ;
+		$(this).html('<img src="/static/ftxia/images/loading.gif" />');
+		$.ajax({
+			url: FTXIAER.root + '/?m=item&a=noshow',
+				type: 'POST',
+				data: {
+					id: id
+				},
+			dataType: 'json',
+			success: function(result){
+				if(result.status == 1){
+					$(this).html('成功');
+					$.ftxia.tip({content:result.msg, icon:'success'});
+				}else{
+					$(this).html('已取消');
+					$.ftxia.tip({content:result.msg, icon:'error'});
+				}
+			}
+		});
+	}); 
+</script>
+</if>
+</notempty>
+<div class="foot">
+    <div class="foot-con">
+        <div class="con-box-n clear">
+            <div class="con-left-info fl">
+                <dl class="update">
+                    {:R('advert/index', array(5), 'Widget')}
+                </dl>
+                <dl class="cooperation">
+                    {:R('advert/index', array(2), 'Widget')}
+                </dl>
+                <dl class="cor-info">
+                    {:R('advert/index', array(1), 'Widget')}
+                </dl>
+                <dl class="help-info">
+                    {:R('advert/index', array(3), 'Widget')}
+                </dl>
+            </div>
+            <div class="con-menu fr">
+                <a href="{:C('ftx_site_url')}" class="service-add fl" target="_blank"></a>
+            <span class="service-time fl">
+                <p>周一至周六 </p>
+                <p>9:00-22:00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </span>
+            </div>
+        </div>
+<div class="links">
+<span>友情链接：</span>
+<div class="links_list_box"><!--统计代码开始-->{:C('ftx_statistics_code')}<!--统计代码结束--> 
+<ul>
+
+<li>
+<ftx:link type="lists">	
+<volist name="data" id="val" offset="0" length='10'> 
+<a href="{$val.url}" target="_blank">{$val.name}</a>
+</volist>
+</ftx:link>
+</li>
+<li>
+<ftx:link type="lists">	
+<volist name="data" id="val" offset="10" length='10'> 
+<a href="{$val.url}" target="_blank">{$val.name}</a>
+</volist>
+</ftx:link>
+</li>
+<li>
+<ftx:link type="lists">	
+<volist name="data" id="val" offset="20" length='10'> 
+<a href="{$val.url}" target="_blank">{$val.name}</a>
+</volist>
+</ftx:link>
+</li>
+</ul>
+	</div>
+	
+</div>
+        <p class="ft-company" >
+		<a href="{:C('ftx_site_url')}" target="_blank" rel="nofollow">{:C('ftx_site_name')}</a>&nbsp;
+		
+		<br>
+		Copyright &copy; 2010 - 2014 <a href="{:C('ftx_site_url')}" target="_blank" rel="nofollow">16iu.com</a> All Rights Reserved  <a href="http://www.miibeian.gov.cn" target="_blank">{:C('ftx_site_icp')}</a><br />
+<!---声明：请尊重我们的劳动，以下版权不要删除，你们的支持是我们继续免费分享更多淘宝客程序的动力！-->
+<a href="http://www.16iu.com" target="_blank">浩天淘宝客工作室(16IU.COM)
+</a>
+
+		</p> 
+                    		
+            </div>
+</div>
+<script type="text/javascript">
+$('#banners').click(function(){
+$('#colsebanner').css('display','none');  
+});
+var FTXIAER = {
+    root: "__ROOT__",
+	site: "{:C('ftx_site_url')}",
+    uid: "<?php echo $visitor['id'];?>", 
+	chaxunurl: "{:U('ajax/check_item')}",
+    url: {}
+};
+var lang = {};
+<volist name=":L('js_lang')" id="val">lang.{$key} = "{$val}";</volist>
+</script>
+<ftx:load type="js" href="__STATIC__/js/jquery/plugins/jquery.tools.min.js,__STATIC__/js/jquery/plugins/jquery.masonry.js,__STATIC__/js/jquery/plugins/formvalidator.js,__STATIC__/js/fileuploader.js,__STATIC__/js/ftxia.js,__STATIC__/js/front.js,__STATIC__/js/goback.js,__STATIC__/js/dialog.js,__STATIC__/js/item.js,__STATIC__/js/user.js,__STATIC__/js/comment.js,__STATIC__/js/comm.js" />
+<load href="__STATIC__/ftxia/js/report.js" />
+<script type="text/javascript" language="javascript">
+        function AddFavorite(sURL, sTitle) {
+            sURL = encodeURI(sURL); 
+        try{   
+            window.external.addFavorite(sURL, sTitle);  
+        }catch(e) {   
+            try{   
+                window.sidebar.addPanel(sTitle, sURL, "");   
+            }catch (e) {   
+                alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+            }   
+        } 
+    }   
+</script>
+<script src="__STATIC__/juanpi/js/md-lazyload.js" type="text/javascript"></script>
+<script src="__STATIC__/juanpi/js/md-totop.js" type="text/javascript"></script>
+<script src="__STATIC__/juanpi/js/md-viewregistreward.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $("img.lazy").lazyload({threshold:200,failure_limit:30});
+        seajs.use([
+            '__STATIC__/juanpi/js/zhe-item.js'
+            ],function(a){
+            a();
+        });
+        var F_showTwoDimeBox = function(){
+        $('.list-good .dimension').parents('li').hover(
+                function(){
+                    var $self = $(this);
+                    var $selfDimension = $self.find('.dimension');
+                    var imgHtml = '<img id="dime_img" src="" width="97"/>';
+                    var imgSrcUrl = $self.find('.img_inputid').attr('d_src');
+                    if( $self.find('#dime_img').length == 0 ){
+                        $self.find('.dime-pic').append(imgHtml);
+                    }
+                    $self.find('#dime_img').attr('src', imgSrcUrl);
+                    $self.find('.two-iphone-n').attr('class', 'two-iphone');
+                    $selfDimension.show();
+                    var curSpanWid = $selfDimension.find('span').width();
+                    if(curSpanWid > 25){
+                        $selfDimension.find('.unit').hide();
+                    }
+                }, function(){
+                    $(this).find('.two-iphone').attr('class', 'two-iphone-n');
+                    $(this).find('.dimension').hide();
+                }
+            );
+        }
+        F_showTwoDimeBox();
+    </script>
+<script src="__STATIC__/juanpi/js/md-ga.js" language="javascript"></script>

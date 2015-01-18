@@ -1,0 +1,37 @@
+<div class="dialog_login ">
+<div class="content-share">
+<h3>{:L('other_login_model')}：</h3>
+<ul>
+<volist name="oauth_list" id="val">
+<li><a href="{:U('oauth/index', array('mod'=>$val['code']))}" class="pub {$val.code}">{$val.name}</a></li>
+</volist>
+</ul>
+<span>还没有帐号？<a href="{:U('user/register')}" class="blue_1">立即注册</a></span></div>
+<div class="content-landing">
+<h3>请输入账号和密码登陆：</h3>
+<form method="post" action="{:U('user/login')}">
+<ul>
+<li>
+<div class="user">
+<span>
+<i class="user-ico"></i>
+</span>
+<input type="text" placeholder="用户名" name="username" class="J_username user-input"></div></li><li>
+<div class="user">
+<span>
+<i class="pass-ico"></i>
+</span>
+<input type="password" placeholder="请输入密码" name="password" class="J_password user-input"></div></li>
+<li><div class="chex">
+<span><label>
+<input type="checkbox" value="" name="remember" class="ck" checked="">{:L('rememberme')}</label></span>
+<a href="{:U('forget/index')}" class="forget ">{:L('forget_password')}</a>
+</div>
+</li>
+<li>
+<div class="btn"><input type="submit" value="{:L('login')}" class="sub"></div>
+</li>
+</ul>
+</form>
+</div>   
+</div>   

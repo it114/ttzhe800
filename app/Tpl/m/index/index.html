@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<include file='public:head'/>
+</head>
+<body>
+<div class="main">
+<div class="app">
+<include file='public:header'/>
+<div id="goods">
+<div id="cover"></div>
+<div id="dwon"></div>
+<ul class="goods-list clear">
+<volist name='items_list' id='item'>
+<li>
+<a class="goods-a" target="_blank"  href="{:U('jump/index',array('id'=>$item['id']))}">
+<img class="lazy" src="{:attach(get_thumb($item['pic_url'], '_m'),'item')}" _src="__STATIC__/wap/images/blank.gif" />
+<img class="new-icon" src="__STATIC__/wap/images/new.png" />
+<if condition='$item["shop_type"] eq "B"'><img class="tmall-icon" src="__STATIC__/wap/images/tmall.png" /></if>
+</a><a target="_blank"  href="{:U('jump/index',array('id'=>$item['id']))}"><h1>{$item.title}<i>/包邮</i></h1></a>
+<a target="_blank"  href="{:U('jump/index',array('id'=>$item['id']))}">
+<div class="list-price buy">
+<span class="price-new"><i>￥</i>{$item.coupon_price}</span><i class="del">/￥{$item.price}</i>
+<span class="good-btn">去抢购</span>
+</div>
+</a>
+
+</li>
+</volist>
+</ul>
+<div class="paging">
+<div class="paging-nav next">
+{$page}
+</div>
+<div class="paging-totop">
+<a href="#"><i class="ico14"></i>回到顶部</a>   
+</div>    
+</div>
+</div>        
+<include file='public:footer'/>
+</div>
+</body>
+</html>

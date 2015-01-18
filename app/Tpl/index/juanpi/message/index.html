@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<title>{:L('message_list')}</title>
+<include file="public:head" />
+<load href="__STATIC__/ftxia/new/css/md-pagination.css" />
+<load href="__STATIC__/ftxia/new/css/md-goodslist.css" />
+<load href="__STATIC__/ftxia/new/css/md-public.css" />
+<load href="__STATIC__/ftxia/new/css/pg-zone.css" />
+<css file="__STATIC__/jiu/css/message.css" />
+</head>
+<body>
+<include file="public:header" />
+<div class="main">
+	<div class="piece jiu_goods">
+		<div class="piece_box">
+			<div class="jiu_info">
+				<div class="jiu_bd jiu_top content_body fl">
+					<div class="nav_con">
+						<div class="top_nav">
+							<ul>
+								<li class="other_normal other_active"><a href="{:U('message/index')}">我的短消息</a></li>
+								<li class="other_normal "><a href="{:U('user/gift')}">我的礼品</a></li>
+								<li class="other_normal "><a href="{:U('user/like')}">我的喜欢</a></li>
+								<li class="other_normal "><a href="{:U('user/index')}">账号设置</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="content_left">
+					<ul id="zone_tab" class="zone_tab clear">		
+                            <li class="zt_f c"><a href="{:U('message/index')}">消息列表</a></li>
+                            <li class="zt_f"><a href="{:U('message/system')}">系统消息</a></li>
+							<li class="zt_f"><a href="{:U('message/target')}">{:L('send_message')}</a></li>							
+				    </ul>
+        <div class="mess_box fl">
+            <h3 class="title">
+                <i>{:L('message_list')}</i>
+                <a class="btn fr" href="{:U('message/target')}">{:L('send_message')}</a>
+            </h3>
+            <if condition="$talk_list neq ''">
+            <ul class="meslist">
+                <volist name="talk_list" id="talk">
+                <li class="m_l">
+                    <div class="time_del"><span>{$talk.add_time|frienddate}</span></div>
+                    <div class="ml_pic">
+                        <a href="{:U('space/index', array('uid'=>$talk['ta_id']))}" target="_blank"><img alt="{$talk.ta_name}" src="{:avatar($talk['ta_id'], 48)}" class="J_card r5" data-uid="{$talk.ta_id}"></a>
+                    </div>
+                    <div class="ml_content">
+                        <a href="{:U('space/index', array('uid'=>$talk['ta_id']))}" target="_blank" class="J_card ml_name" data-uid="{$talk.ta_id}">{$talk.ta_name}</a>
+                        <div class="ml_c_box">
+                            <p>
+                                <if condition="$talk['from_id'] eq $visitor['id']">{:L('i_to_h')}:<else/>{:L('h_to_i')}:</if>
+                                <a href="{:U('message/talk', array('ftid'=>$talk['ftid']))}" <if condition="$talk['status'] eq '0' AND $talk['to_id'] eq $visitor['id']">class="bold"</if>>{$talk.info}</a>
+                            </p>
+                            <a href="{:U('message/talk', array('ftid'=>$talk['ftid']))}" class="ml_all">{:sprintf(L('see_all_talk'),$talk['num'])}</a>
+                        </div>
+                    </div>
+                </li>
+                </volist>
+            </ul>
+            <div class="page_bar">{$page_bar}</div>
+            <else/>
+            <p class="mt20">{:L('no_message')}</p>
+            </if>
+        </div>
+    </div>
+</div>
+<div class="jiu_right fr">
+					<include file="public:exchange_info" />
+				</div>
+</div>
+</div>
+</div>
+</div>
+<include file="public:footer" />
+<script src="__STATIC__/jiu/js/setting.js"></script>
+</body>
+</html>

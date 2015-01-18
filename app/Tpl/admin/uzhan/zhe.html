@@ -1,0 +1,130 @@
+<!doctype html public "-//w3c//dtd html 4.01 transitional//en" "http://www.w3.org/tr/html4/loose.dtd">
+<html>
+ <head>
+  <title>U站采集页面</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <load href="__STATIC__/js/jquery/jquery.js" />
+  <script type="text/javascript">
+   var curl = '{:U('admin/uzhan/uzhancai')}';
+   var curlonezhe = '{:U('admin/uzhan/onezhe')}';
+   var curlqxbd ='{:U('admin/uzhan/qxbd')}';
+   var curlauto_cai = '{:U('admin/uzhan/auto_begin')}';
+   var curlfirst ='{:U('admin/uzhan/first')}';
+   var curladditems ='{:U('admin/uzhan/additems')}';
+   var curlbind ='{:U('admin/uzhan/bind')}';
+   var curlbindcx ='{:U('admin/uzhan/bindcx')}';
+   var curlxgbind ='{:U('admin/uzhan/xgbind')}';
+   var pic        = '__STATIC__/ftxia/js/loading.gif';
+   var timeurl    = '{:U('admin/uzhan/starttime')}';
+   var gettimeurl    = '{:U('admin/uzhan/getstarttime')}';
+  </script>
+  <style type="text/css"></style>
+  </head>
+
+  <body>
+  <div id="main">
+  <form method="post" action="#" id="myForm">
+  <div id="ben">
+<p>分类信息绑定：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;宝贝开始时间：
+ <select name="starttime">
+  <option value="0" selected>立即开始</option>
+  <option value="t0">今天零点</option>
+  <option value="t10">今天十点</option>
+  <option value="b0">明天零点</option>
+  <option value="b10">明天十点</option>
+ </select></p>
+  <table>
+    <volist name="nodebd" id='v'>
+    <tr>
+      <td><span class='flname'>{$v.name}</span></td>
+      <td>
+        <span <if condition="$v['bded']==0"> class='bd'<else/> class='xgbd'</if> name="{$v.id}">
+          <if condition="$v['bded']==0">绑定<else/>修改已绑定</if>
+        </span>
+      </td>
+      <td>
+        <span class='qxbd' name="{$v.id}">
+          <if condition="$v['bded']==1">取消绑定</if>
+        </span>
+      </td>
+    </tr>
+    <volist name="v['child']" id='vv'>
+    <tr>
+      <td><span class='flname'>{$vv.name}</span></td>
+      <td>
+        <span <if condition="$vv['bded']==0"> class='bd'<else/>class='xgbd'</if> name="{$vv.id}">
+              <if condition="$vv['bded']==0">绑定<else/>修改已绑定</if>
+        </span>
+      </td>
+        <td>
+        <span class='qxbd' name="{$vv.id}">
+          <if condition="$vv['bded']==1">取消绑定</if>
+        </span>
+      </td>
+    </tr>
+    </volist>
+    </volist>
+  </table>
+  </div>
+
+
+
+  <div id="zhe">
+    <div id='ubd'><span>X</span></div>
+    <div id="zhee">
+
+   <p>折800分类信息:</p>
+   <table>
+     <tr>
+       <td>女装</td><td>化妆品</td><td>鞋包</td><td>数码家电</td><td>美食</td>
+       <td>居家</td><td>母婴</td><td>文体</td><td>男装</td><td>配饰</td>
+     </tr>
+     <tr>
+       <td><input type="checkbox" name="zhe800_2" value=2></td>
+       <td><input type="checkbox" name="zhe800_3" value=3></td>
+       <td><input type="checkbox" name="zhe800_4" value=4></td>
+       <td><input type="checkbox" name="zhe800_5" value=5></td>
+       <td><input type="checkbox" name="zhe800_6" value=6></td>
+       <td><input type="checkbox" name="zhe800_7" value=7></td>
+       <td><input type="checkbox" name="zhe800_8" value=8></td>
+       <td><input type="checkbox" name="zhe800_9" value=9></td>
+       <td><input type="checkbox" name="zhe800_11" value=11></td>
+       <td><input type="checkbox" name="zhe800_12" value=12></td>
+     </tr>
+   </table>
+   
+<p>九块邮分类信息:</p>
+        <table>
+             <tr>
+               <td>服饰</td><td>美妆</td><td>鞋包配饰</td><td>美食</td><td>居家</td><td>数码电器</td><td>母婴</td>
+               <td>文体</td>
+             </tr>
+             <tr>
+               <td><input type="checkbox" name="jiukuaiyou_fushi" value='fushi'></td>
+               <td><input type="checkbox" name="jiukuaiyou_meizhuang" value='meizhuang'></td>
+               <td><input type="checkbox" name="jiukuaiyou_xiebaopeishi" value='xiebaopeishi'></td>
+               <td><input type="checkbox" name="jiukuaiyou_meishi" value='meishi'></td>
+               <td><input type="checkbox" name="jiukuaiyou_jujia" value='jujia'></td>
+			   <td><input type="checkbox" name="jiukuaiyou_shuma" value='shuma'></td>
+               <td><input type="checkbox" name="jiukuaiyou_muying" value='muying'></td>
+               <td><input type="checkbox" name="jiukuaiyou_wenti" value='wenti'></td>
+             </tr>
+           </table>
+     <div id='bd'><span>绑定</span><span>修改绑定</span></div>
+   </div>
+  </div>
+  <div id='info'>
+    <p id="tsxx">信息提示</p>
+    <div id="cont"></div>
+  </div>
+  </form>
+</div>
+<div id="footer">
+<span id='caiji' onclick="begin()">自动采集</span><span id='qh' onclick="qh()">手动采集</span>
+</div>
+  </body>
+  <load href="__STATIC__/ftxia/css/cai.css"/>
+  <load href="__STATIC__/ftxia/js/cai.js" />
+</html>

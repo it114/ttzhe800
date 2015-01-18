@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<include file="public:head" />
+</head>
+<body>
+<include file="public:header" />
+<include file="public:nav-classify" />
+<!--List Start-->
+<div class="main clear">
+<ul class="goods-list">  
+<present name="items_list">	
+<volist name="items_list" id="item" key="i">              
+<li   >
+<div  class="list-good {$item.class} todayDb "  >
+<a href="{:U('jump/index',array('id'=>$item['id']))}" target="_blank">
+<img  src="{:attach(get_thumb($item['pic_url'], '_m'),'item')}" alt="{$item.title}" class="good-pic"/>
+</a>
+<if condition="$item.newhot eq '0' "><span class="brand_new"></span></if>
+<h5 class="good-title">
+<if condition="$item['cate_id'] eq $item['ccid'] "><a target="_blank" href="{:U('index/cate', array('cid'=>$item['cate_id']))}" class="fl">【{$item['cname']}】</a></if>             
+<a target="_blank" href="{:U('item/index',array('id'=>$item['id']))}" class="title">{$item.title}</a>
+</h5>
+<div class="title-tips">
+<span class="into">折扣价格{$item.coupon_price}元</span>
+<div class="like-state">
+						<div class="like-num">
+							<dl class="J_scrollUp" style="top: 0px;">
+								<dd class="cur-num">{$item.likes}</dd>
+								<dd class="add-num">+1</dd>
+							</dl>
+						</div>
+						<a title="喜欢" data-pid="{$item.id}" class="like" href="javascript:;"><em></em></a>
+					</div>
+				<notempty name="visitor">
+				<if condition="$visitor['username'] eq C('ftx_index_admin')">
+				<span class="show" data-id="{$item.id}"><a title="不显示" href="javascript:void(0);" data-id="{$item.id}">隐藏</a></span>
+				</if>
+				</notempty>
+</div>
+<div class="good-price">
+<span class="price-current"><em>￥</em>{$item.coupon_price}</span>
+<span class="des-other">
+<span class="discount">销量：{$item.volume}</span>	
+</span>
+<div class="btn {$item.class}">
+<if condition="$item.class eq 'buy' "><a href="{$item.click_url}" target="_blank">
+<if condition="$item.shop_type eq 'C' "><em class="icon tao-n"></em></if>
+<if condition="$item.shop_type eq 'B' "><em class="icon tao-t"></em></if><span>去抢购</span></a></if>
+<if condition="$item.class eq 'gone' "><a href="{$item.click_url}" target="_blank">
+<if condition="$item.shop_type eq 'C' "><em class="icon tao-n"></em></if>
+<if condition="$item.shop_type eq 'B' "><em class="icon tao-t"></em></if><span>已结束</span></a></if>
+<if condition="$item.class eq 'start' "><a target="_blank" href="http://qzs.qq.com/snsapp/app/bee/widget/open.htm#content=亲，您在 {:C('ftx_site_name')} 关注的【{$item.title}】马上就要开始抢购了哦。&time={$item.coupon_start_time|date='20y-m-d H:i',###}&advance=5&url={$item.url}"><if condition="$item.shop_type eq 'C' "><em class="icon tao-n"></em></if>
+<if condition="$item.shop_type eq 'B' "><em class="icon tao-t"></em></if><span>提醒我</span></a></if> 
+</div>
+</div>
+<div class="pic-des">
+<div class="des-state">
+<include file="public:share" />
+<span class="state-time fl">开始：{$item.coupon_start_time|date="Y-m-d H:i",###}</span>
+
+<a title="{$item.title}" class="buy_ed fr " style="display:block;" znid="{$item.id}" href="javascript:;">举报</a>
+</div>
+</div>
+</div>
+</li>
+</volist>
+</present>
+</ul>
+<div class="page">
+<em></em>
+<div>
+{$page}
+</div>
+</div>    
+    </div>
+    <div class="alert_ceng"></div>
+    <div class="alert_fullbg_tip"></div>
+<!--List End-->
+
+<include file="public:footer" />
+</body>
+</html>

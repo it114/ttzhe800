@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<include file="public:head" />
+<load href="__STATIC__/css/ftxia/article.css" />
+<style type="text/css">
+body,td,th {
+	font-family: Tahoma, Helvetica, Arial, "宋体", sans-serif;
+}
+
+.content_text h2 {
+	padding: 10px 0;
+	font-size: 14px;
+}
+
+.content_text table td {
+	text-indent: 12px;
+}
+</style>
+</head>
+<body>
+<include file="public:header" />
+<div style="width:1000px;margin:0 auto">
+<div class="mains">
+<div class="about piece">
+<div class="white_bg">
+<div class="about_menu fl">
+	<ul>		
+		<volist name="article_cate_list" id="at_cate">
+		<li><a <if condition="$at_cate.id eq $article['cate_id']"> class="cur" </if> href="{:U('article/cate',array('id'=>$at_cate['id']))}">{$at_cate.name}</a></li>
+		</volist>
+	</ul>
+</div>
+<div class="about_contain fr">
+<div class="about_tit">{$article.title}</div>
+<div class="other"><span class="hits">点击：{$article.hits}</span>  <span class="author">时间：{$article.add_time|frienddate}</span><span class="next"><if condition="$preid eq 0">第一篇<else /><a href="{:U('article/read',array('id'=>$preid))}" target="_blank" >上一篇：{$articlep.title}</a></if> | <a href="{:U('article/read',array('id'=>$nid))}" target="_blank">下一篇：{$articlen.title}</a></span></div>
+<div class="about_content">
+<ul class="about_notes">
+
+	<div class="piece content">
+	  <div class="piece_box">
+			
+            <div class="content_text">
+<?php echo htmlspecialchars_decode($article['info']);?>
+			</div>
+		</div>
+		
+	</div>
+<script type="text/javascript">
+(function(){
+var url = "http://widget.weibo.com/distribution/comments.php?width=0&url=auto&brandline=y&fontsize=12&appkey=1252477387&dpc=1";
+url = url.replace("url=auto", "url=" + encodeURIComponent(document.URL)); 
+document.write('<iframe id="WBCommentFrame" src="' + url + '" scrolling="no" frameborder="0" style="width:100%"></iframe>');
+})();
+</script>
+<script src="http://tjs.sjs.sinajs.cn/open/widget/js/widget/comment.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+window.WBComment.init({
+    "id": "WBCommentFrame"
+});
+</script>
+</ul>
+</div>
+<div class="page"> {$page}</div></div>
+</div>
+</div>
+</div>
+</div>
+<include file="public:footer" />
+ 
+</body>
+</html>
