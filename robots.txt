@@ -1,0 +1,10 @@
+User-Agent: *
+Disallow: /app
+Disallow: /checks.php
+Disallow: /httpd.ini
+Disallow: /admin.php
+Disallow: /thinkphp
+Disallow: /static
+Disallow: /data
+Disallow: /images
+
