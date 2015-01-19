@@ -1,0 +1,137 @@
+[ 2014-11-06T23:20:05+08:00 ] 127.0.0.1 /install.php
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.104738s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.104997s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.414370s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.414587s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.069910s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.036579s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.075538s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.047066s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.229729s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.078176s ]
+INFO: [ view_end ] --END-- [ RunTime:0.078365s ]
+
+[ 2014-11-06T23:20:12+08:00 ] 127.0.0.1 /install.php?m=index&a=index
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.003299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003471s ]
+NOTIC: 建议使用I方法替代_post
+
+[ 2014-11-06T23:20:13+08:00 ] 127.0.0.1 /install.php?m=index&a=check
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.003243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003409s ]
+NOTIC: [2] Missing argument 1 for Dir::__construct(), called in D:\web\haotian\install\Lib\Action\indexAction.class.php on line 71 and defined D:\web\haotian\install\Lib\ORG\Dir.class.php 第 37 行.
+NOTIC: [8] Undefined variable: path D:\web\haotian\install\Lib\ORG\Dir.class.php 第 39 行.
+NOTIC: [8] Undefined variable: path D:\web\haotian\install\Lib\ORG\Dir.class.php 第 39 行.
+
+[ 2014-11-06T23:20:13+08:00 ] 127.0.0.1 /install.php?m=index&a=setconf
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.003505s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003701s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.163803s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.164027s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.003692s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.003628s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.003192s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.003315s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014224s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.003457s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003628s ]
+
+[ 2014-11-06T23:20:36+08:00 ] 127.0.0.1 /install.php?m=index&a=setconf
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.003325s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003509s ]
+
+[ 2014-11-06T23:20:36+08:00 ] 127.0.0.1 /install.php?m=index&a=install
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.003278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003451s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.199102s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.199324s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.003440s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.003298s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.003124s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.003303s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013716s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.003333s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003465s ]
+
+[ 2014-11-06T23:20:40+08:00 ] 127.0.0.1 /install.php?m=index&a=finish_done
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.005773s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006073s ]
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+NOTIC: [8] ob_flush() [<a href='ref.outcontrol'>ref.outcontrol</a>]: failed to flush buffer. No buffer to flush. D:\web\haotian\install\Lib\Action\indexAction.class.php 第 240 行.
+
+[ 2014-11-06T23:20:43+08:00 ] 127.0.0.1 /install.php?m=index&a=finish
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.004789s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005111s ]
+INFO: [ view_parse ] --START--
+INFO: ParseTemplate Behavior ::run [ RunTime:0.090943s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.091273s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.003424s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.003227s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.003105s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.003902s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014060s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.003251s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003381s ]
+
