@@ -66,7 +66,7 @@
                     </dd>                    
                 </dl>
                <p class="tips clear" style="overflow: hidden;">
-                   <!--- <span class="item-pr fl">原价：<em class="old-price">{$item.price}元</em></span>--->
+                   <!--- <span class="item-pr fl">原价：<em class="old-price">{$item.price}元</em></span>-->
                 </p>
                 <br>
                 <p class="price">
@@ -110,9 +110,9 @@
 				<span class="fl">离结束还有：</span> <span class="time fl" id="end_date_{$item.id}" data-time="{$item.coupon_end_time}" data-id="{$item.id}"></span>
 				<span class="common nomind"><a class="openAlert" href="http://qzs.qq.com/snsapp/app/bee/widget/open.htm#content=亲，您在 {:C('ftx_site_name')} 关注的【{$item.title}】马上就要开始抢购了哦。&time={$item.coupon_end_time|date='20y-m-d H:i',###}&advance=5&url={$item.url}" target="_blank">结束前提醒</a></span>
 				
-                    <dt>温馨提示： <p>16iu.com只是为您提供 <if condition="$item.shop_type eq 'C' ">淘宝网</if>
+                    <dt>温馨提示： <p>我们只是为您提供 <if condition="$item.shop_type eq 'C' ">淘宝网</if>
                 <if condition="$item.shop_type eq 'B' ">天猫商城</if> 正在打折的特价商品，最终成交是在 <if condition="$item.shop_type eq 'C' ">淘宝网</if>
-                <if condition="$item.shop_type eq 'B' ">天猫商城</if> 进行，请放心购买！</p>如果您感觉16iu.com比较不错，记得分享给您身边的朋友呀！16iu.com官方网址：www.sjiel.com</dt>
+                <if condition="$item.shop_type eq 'B' ">天猫商城</if> 进行，请放心购买！</p></dt>
 			    </if>	
 				</p>
                 			           
