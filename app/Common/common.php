@@ -398,3 +398,10 @@ function id_num($in,$to_num = false,$pad_up = false,$passKey = null)  {
 function GG($url){
     return substr($url, 1);
 }
+
+function format_price($price)
+{
+  $p = strval($price);
+  $arr = explode('.', $p);
+  return count($arr)>1?'<strong style="font-size:26px">'.$arr[0].'</strong>.'.$arr[1]:'<strong>'.$arr[0].'</strong>';
+}
