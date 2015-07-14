@@ -1,9 +1,38 @@
 <?php
 if (!is_file('./data/install.lock')) {
     header('Location: ./install.php');
-    exit;
+    exis;
+}
+function isMobileUrl()
+{
+	$pathinfo = $_SERVER['PATH_INFO'];
+	if(strpos($pathinfo,'/m/') === false)
+	{
+		return false;
+	}	
+	return true;
+}
+function isMobileDevice()
+{
+	$agent = strtolower($_SERVER['HTTP_USER_AGENT']);
+	$type = '';
+	$keyword = array('iphone','ipad','ipod','android');
+	foreach ($keyword as $k) 
+	{
+		if(strpos($agent, $k) !== false)
+		{
+			return true;
+		}
+	}
+	return false;
+	
 }
 
+if(isMobileDevice() && !isMobileUrl())
+{
+	header('Location: index.php/m/index/index');
+	exit();
+}
 define('FTX_VERSION', '5.0');
 define('FTX_RELEASE', '20131210');
 define('APP_NAME', 'app');
