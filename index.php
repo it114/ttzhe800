@@ -5,8 +5,9 @@ if (!is_file('./data/install.lock')) {
 }
 function isMobileUrl()
 {
-	$pathinfo = $_SERVER['PATH_INFO'];
-	if(strpos($pathinfo,'/m/') === false || strpos($pathinfo,'g=m') === false)
+	$pathinfo = isset($_SERVER['PATH_INFO'])?trim($_SERVER['PATH_INFO']):'';
+	$g = isset($_GET['g'])?trim($_GET['g']):'';
+	if(strpos($pathinfo,'/m/') === false && $g != 'm')
 	{
 		return false;
 	}	
