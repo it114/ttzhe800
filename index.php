@@ -34,6 +34,16 @@ if(isMobileDevice() && !isMobileUrl())
 	header('Location: index.php/m/index/index');
 	exit();
 }
+
+$host = strtolower($_SERVER['HTTP_HOST']);
+if(substr($host, 0,4) != 'www.')
+{
+	$host = 'www.'.$host;
+	header('HTTP/1.1 301 Moved Permanently');
+    header('Location: http://'.$host);
+    exit();
+}
+
 define('FTX_VERSION', '5.0');
 define('FTX_RELEASE', '20131210');
 define('APP_NAME', 'app');
