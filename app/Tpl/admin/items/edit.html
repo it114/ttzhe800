@@ -30,7 +30,7 @@
 			</tr>
 			<tr>
                 <th>商品简介 :</th>
-                <td><textarea name="intro" cols="100" rows="5">{$info.intro}</textarea></td>
+                <td><textarea name="intro" id="intro" cols="100" rows="5" style="width:80%;height:400px;visibility:hidden;resize:none;">{$info.intro}</textarea></td>
             </tr>
 			<tr>
 				<th width="120">商品价格 :</th>
@@ -148,6 +148,7 @@
 <input type="hidden" name="id" value="{$info.id}" />
 </form>
 <include file="public:footer" />
+<script src="__STATIC__/js/kindeditor/kindeditor-min.js"></script>
 <script type="text/javascript">
 $('.J_cate_select').cate_select('请选择');
 $(function() {	
@@ -155,7 +156,11 @@ $(function() {
 
 
 
-
+	KindEditor.create('#intro', {
+		uploadJson : '{:U("attachment/editer_upload")}',
+		fileManagerJson : '{:U("attachment/editer_manager")}',
+		allowFileManager : true
+	});
 
   //上传图片
     var img_uploader = new qq.FileUploaderBasic({

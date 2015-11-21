@@ -49,7 +49,7 @@
  			</tr>
 			<tr>
                 <th>商品简介 :</th>
-                <td><textarea name="intro" id="J_intro" cols="80" rows="2"></textarea></td>
+                <td><textarea name="intro" id="J_intro" cols="80" rows="2" style="width:80%;height:400px;visibility:hidden;resize:none;"></textarea></td>
             </tr>
 			<tr>
 				<th>商品标签 :</th>
@@ -165,12 +165,17 @@
 
 <include file="public:footer" />
 
-
+<script src="__STATIC__/js/kindeditor/kindeditor-min.js"></script>
 <script type="text/javascript">
 var descEditor;
 $('.J_cate_select').cate_select('请选择');
 
-	
+KindEditor.create('#J_intro', {
+		uploadJson : '{:U("attachment/editer_upload")}',
+		fileManagerJson : '{:U("attachment/editer_manager")}',
+		allowFileManager : true
+	});
+
 $(function() {
 
 
