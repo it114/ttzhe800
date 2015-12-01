@@ -61,9 +61,7 @@ background: #f3f3f3; height: 20px; *top: 5px; top: 5px\9\0;}
 
 /* the nav start*/
 .jiu-nav-main{ width:100%; height:46px; margin-top: -5px; background:#fff;box-shadow: 0 1px 1px rgba(212, 212, 212, 0.3);}
-/*modify by cjx 2015-12-20 分类宽度适配*/.
-.jiu-nav { position: relative;width:100%; height:46px; margin:0 auto;}
-/*.jiu-nav { position: relative;width:980px; height:46px; margin:0 auto;}*/
+.jiu-nav { position: relative;width:980px; height:46px; margin:0 auto;}
 .jiu-nav .icon-h{ display:block; position:absolute; top:8px; right:6px; background:url(../img/jiu/icon-h.png) no-repeat;_background:url(../img/jiu/icon-h.gif) no-repeat; width:8px; height:9px;}
 .nav-item {height:46px;  position: relative; padding:0 0 0 15px;}
 .item-list ul li{ display:block; float:left;margin-right:10px; display:inline;}
