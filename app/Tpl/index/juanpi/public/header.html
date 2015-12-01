@@ -1,5 +1,5 @@
 <div class="head">
-<style type="text/css"> 
+<style type="text/css">
 #cs{width:610px;height:60px; dashed;overflow:hidden;text-overflow:ellipsis}
 </style> 
     <div class="top">
@@ -93,7 +93,7 @@
 				<li><a href="{:C('ftx_site_url')}" <empty name="cid"> class="active"</empty>>全部</a></li>
 				<empty name="cate_list['s'][$cid]">
 									<empty name="cate_list['s'][$cinfo['pid']]">
-										
+
 										<volist name="cate_list['p']" id="bcate">
 										<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
 										</volist>
@@ -102,18 +102,18 @@
 										<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
 										</volist>
 									</empty>
-								<!--<else />-->
-									<!--<empty name="cate_list['s'][$cinfo['pid']]">-->
-										<!--<volist name="cate_list['s'][$cid]" id="bcate">-->
-										<!--<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>-->
-										<!--</volist>-->
-									<!--<else />-->
-										<!--<volist name="cate_list['s'][$cinfo['pid']]" id="bcate">-->
-										<!--<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>-->
-										<!--</volist>-->
-									<!--</empty>-->
+								<else />
+									<empty name="cate_list['s'][$cinfo['pid']]">
+										<volist name="cate_list['s'][$cid]" id="bcate">
+										<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
+										</volist>
+									<else />
+										<volist name="cate_list['s'][$cinfo['pid']]" id="bcate">
+										<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
+										</volist>
+									</empty>
                 </empty>
-</if>								
+</if>
                 </ul>
 		
 			
