@@ -36,7 +36,7 @@ if(isMobileDevice() && !isMobileUrl())
 }
 
 $host = strtolower($_SERVER['HTTP_HOST']);
-if(substr($host, 0,4) != 'www.')
+if(substr($host, 0,4) != 'www.' && $host != 'localhost' && $host != '127.0.0.1')
 {
 	$host = 'www.'.$host;
 	header('HTTP/1.1 301 Moved Permanently');
