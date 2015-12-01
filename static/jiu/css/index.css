@@ -257,7 +257,8 @@ body {
 .login-ed .normal .login-box ul li a:hover{ background:#ffebd2; text-decoration:none;}
 .login-ed .normal .zone-box{display:none; height:145px;left:3px; bottom:-149px;_bottom:-147px;z-index:22}
 /*nav by mumian start*/
-.head .nav{ position:relative; width:980px; height:40px; margin:0 auto;z-index:21;}
+/*modify by cjx 2015-12-20*/
+.head .nav{ position:relative; width:1000px;/*980px*/ height:40px; margin:0 auto;z-index:21;}
 .navigation { position:absolute; top:0; left:0;width:660px; height:40px;}
 .navigation li {position:relative; float:left; height:100%; background:url(../images/global/line_cur.png) no-repeat right;}
 .navigation .current { padding-right:2px; background: none;}
