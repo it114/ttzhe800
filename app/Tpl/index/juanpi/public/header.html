@@ -102,17 +102,17 @@
 										<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
 										</volist>
 									</empty>
-								<else />
-									<empty name="cate_list['s'][$cinfo['pid']]">
-										<volist name="cate_list['s'][$cid]" id="bcate">
-										<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
-										</volist>
-									<else />
-										<volist name="cate_list['s'][$cinfo['pid']]" id="bcate">
-										<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>
-										</volist>
-									</empty>
-								</empty>  
+								<!--<else />-->
+									<!--<empty name="cate_list['s'][$cinfo['pid']]">-->
+										<!--<volist name="cate_list['s'][$cid]" id="bcate">-->
+										<!--<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>-->
+										<!--</volist>-->
+									<!--<else />-->
+										<!--<volist name="cate_list['s'][$cinfo['pid']]" id="bcate">-->
+										<!--<li><a <if condition="$cid eq $bcate['id']">class="active"</if> href="{:U('index/cate', array('cid'=>$bcate['id']))}">{$bcate.name}</a></li>-->
+										<!--</volist>-->
+									<!--</empty>-->
+                </empty>
 </if>								
                 </ul>
 		
